@@ -35,7 +35,7 @@ struct Planets {
 { "Neptune", { 2*(1.95), 0, 0 }, 0, 0, 2*(0.07f), { 0.137255, 0.137255, 0.556863 }, 0.182 },
 { "Pluto", { 2*(2.15), 0, 0 }, 0, 0, 2*(0.02f), { 0.752941, 0.752941, 0.752941 }, 0.159 } };
 
-//Global roation speeds and angles for the moon
+//Global rotation speeds and angles for the moon
 float speedMoon = 0.1;
 float angleMoon = 0.0;
 
@@ -85,7 +85,7 @@ void CreatePlanet() {
 		//translate the planets from the origin to their proper place in the solar system
 		glTranslatef(solar[i].p.x, solar[i].p.y, solar[i].p.z);
 
-		//drawing neptunes ring around the planet
+		//drawing Neptune's ring around the planet
 		if (i == 6){
 			glColor3f(1, 1, 1);
 			glBegin(GL_LINE_STRIP);
@@ -119,7 +119,7 @@ void CreatePlanet() {
 			gluSphere(quad, 0.019, 32, 32);
 
 		}
-		//drawing saturns ring around the planet
+		//drawing Saturn's ring around the planet
 		if (i == 5){
 			glColor3f(0.6, 0.8, 0.196078);
 			glBegin(GL_QUAD_STRIP);
@@ -133,7 +133,7 @@ void CreatePlanet() {
 	}
 }
 
-//method responsible for drawing the orbial rings for each planets orbit around the sun
+//method responsible for drawing the orbital rings for each planets orbit around the sun
 void DrawOrbit() {
 	glColor3f(1, 1, 1);
 	for (int i = 0; i < 9; i++) {
@@ -193,7 +193,7 @@ void myIdle() {
 			solar[i].angleOrbit -= 360;
 		}
 	}
-	//controls angle/speed of klingon orbit
+	//controls angle/speed of Klingon orbit
 	rotateKling += speedFactor*0.1;
 	if (rotateKling > 360){
 			rotateKling -= 360;
@@ -254,7 +254,7 @@ void CreateStars() {
 	}
 }
 
-//Draws the created stars, swicthing colors to give shimmering effect
+//Draws the created stars, switching colors to give shimmering effect
 void DrawStars() {
 	int r = rand() % 3;
 	if (r == 1){
@@ -297,14 +297,14 @@ void liveLong(){
 }
 /******************************************************************************************************************/
 
-//2D array to hold all 1201 records of vertcies of x,y,z in enterprise.txt file
+//2D array to hold all 1201 records of verities of x,y,z in enterprise.txt file
 GLfloat vertex[1201][3];
 //2D array to hold all 1989 number of faces within the enterprise.txt file, each face represents a index in the vertex array
 int faces[1989][3];
 
-//keeps track of how many vertexs were found
+//keeps track of how many vertexes were found
 int countV = 0;
-//keep track of how mnay faces were found
+//keep track of how many faces were found
 int countF = 0;
 
 //loads the enterprise file on program startup
@@ -333,13 +333,13 @@ void loadEnterprise(){
 }
 
 
-//2D array to hold all 1670 records of vertcies of x,y,z in klingon.txt file
+//2D array to hold all 1670 records of verities of x,y,z in klingon.txt file
 GLfloat vertexKling[1610][3];
 //2D array to hold all 3191 number of faces within the klingon.txt file, each face represents a index in the vertex array
 int facesKling[3191][3];
-//keeps track of how many vertexs were found
+//keeps track of how many vertexes were found
 int countVK = 0;
-//keep track of how mnay faces were found
+//keep track of how many faces were found
 int countFK = 0;
 
 //loadKlingon Ship from file
@@ -392,7 +392,7 @@ void drawEnterprise(){
 void drawKlingon(){
 	glPushMatrix();
 	//move the enterprise backwards from the solar system
-	//gives the klingon ship an orbit around the solar system, ITS PATROLLING!
+	//gives the Klingon ship an orbit around the solar system, ITS PATROLLING!
 	glRotatef(rotateKling, 0.0, 1.0, 0.0);
 	glTranslatef(-10.0, 0.0, -15.0);
 	glScalef(0.5, 0.5, 0.5);
@@ -419,7 +419,7 @@ void drawSheild(){
 	quad = gluNewQuadric();
 	//position shield around enterprise
 	glTranslatef(0, 1.0, 6.0);
-	//chooses a r,b,g colour value for the sheild, makes it shimmer
+	//chooses a r,b,g colour value for the shield, makes it shimmer
 	glColor4ub(rand() % 255, rand() % 255, rand() % 255, 32);
 	glScalef(0.8, 0.8, 1.3);
 	gluSphere(quad, 0.25, 32, 32);
@@ -467,7 +467,7 @@ void display(void) {
 	}
 	drawKlingon();
 	glPopMatrix();
-	//add sheild to enterprise if toggled
+	//add shield to enterprise if toggled
 	if (sheildOn == 1){
 		drawSheild();
 	}
@@ -491,7 +491,7 @@ void myReshape(int width, int height) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-//inital setup values
+//initial setup values
 void init(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
